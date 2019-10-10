@@ -24,7 +24,7 @@ public class BlogController {
 		System.out.println("들어옴");
 		return "blog/blog-main";
 	}
-
+	
 	/*
 	 * @RequestMapping( {"", "/{pathNo1}", "/{pathNo1}/{pathNo2}" } ) public String
 	 * index(
