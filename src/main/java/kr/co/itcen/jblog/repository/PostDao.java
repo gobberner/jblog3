@@ -29,5 +29,8 @@ public class PostDao {
 		map.put("postNo", postNo);
 		return sqlSession.selectOne("post.getPost", map);
 	}
+	public Boolean insertPost(PostVo vo) {
+		return 1==sqlSession.insert("post.wirtePost",vo);
+	}
 
 }

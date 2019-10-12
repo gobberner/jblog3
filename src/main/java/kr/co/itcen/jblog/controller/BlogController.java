@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -93,8 +94,16 @@ public class BlogController {
 	public String blogPost(@PathVariable String id, Model model) {
 		BlogVo blogvo = blogService.get(id);
 		model.addAttribute("vo", blogvo);
+		List<CategoryVo> list= categoryService.getList(id);
+		model.addAttribute("list",list);
 		return "blog/blog-admin-write";
 	}
-
+	@RequestMapping(value = "/admin/write", method = RequestMethod.POST)
+	public String blogPost(@PathVariable String id, PostVo vo,@RequestParam("categoryNo") Long no) {
+		System.out.println("~~~~~~~~~~~~~~" + no);
+		vo.setCategoryNo(no);
+		postService.insert(vo);
+		return "redirect:/" + id;
+	}
 
 }

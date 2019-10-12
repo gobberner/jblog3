@@ -31,7 +31,7 @@ public class CategoryService {
 	}
 
 	public Boolean delete(Long no) {
-		// TODO Auto-generated method stub
+	
 		return categoryDao.deletecategory(no);
 	}
 

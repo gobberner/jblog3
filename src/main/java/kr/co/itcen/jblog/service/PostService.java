@@ -38,4 +38,9 @@ public class PostService {
 		return postDao.categoryPost(categoryno);
 	}
 
+	public Boolean insert(PostVo vo) {
+		// TODO Auto-generated method stub
+		return postDao.insertPost(vo);
+	}
+
 }

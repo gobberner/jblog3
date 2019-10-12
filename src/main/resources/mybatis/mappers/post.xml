@@ -9,7 +9,7 @@
 
 	<insert id="wirtePost" parameterType="postvo">
 	<![CDATA[
-	insert into post values(null, #{title }, #{content }, now(), #{categoryNo })
+	insert into post values(null, #{title }, #{contents }, now(), #{categoryNo })
 	 ]]>	
 	</insert>
 
