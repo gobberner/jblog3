@@ -11,22 +11,23 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
+		<c:import url="/WEB-INF/views/include/header-blog.jsp"></c:import>
 			<h1>Spring 이야기</h1>
 			<ul>
+				<li>${authUser.name }님</li>
 				<li><a href="${pageContext.request.contextPath}">로그인</a></li>
 				<li><a href="${pageContext.request.contextPath}">로그아웃</a></li>
-				<li><a href="${pageContext.request.contextPath}">블로그 관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/${authUser.id}/blog-main">메인으로 가기</a></li>
 			</ul>
 		</div>
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li><a href="${pageContext.request.contextPath}">기본설정</a></li>
-					<li><a href="${pageContext.request.contextPath}">카테고리</a></li>
+					<li><a href="${pageContext.request.contextPath}/${authUser.id}/blog-admin-basic">기본설정</a></li>
+					<li><a href="${pageContext.request.contextPath}/${authUser.id}/blog-admin-category">카테고리</a></li>
 					<li class="selected">글작성</li>
 				</ul>
-				<form action="" method="post">
+				<form action="${pageContext.request.contextPath}/${authUser.id}/blog-admin-write" method="post">
 			      	<table class="admin-cat-write">
 			      		<tr>
 			      			<td class="t">제목</td>

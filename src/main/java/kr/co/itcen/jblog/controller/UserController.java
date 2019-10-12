@@ -13,19 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.co.itcen.jblog.service.UserService;
 import kr.co.itcen.jblog.vo.UserVo;
 
-
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired private UserService userService;
-		
-	
+	@Autowired
+	private UserService userService;
 	
 	@RequestMapping( value="/login", method=RequestMethod.GET)
 	public String login( @ModelAttribute UserVo userVo ) {
-		
 		return "user/login";
 	}
 
@@ -40,7 +36,7 @@ public class UserController {
 			model.addAllAttributes(result.getModel());
 			return "user/join";
 		}
-		System.out.println(userVo);
+		
 		userService.join( userVo );
 		
 		return "redirect:/user/joinsuccess";

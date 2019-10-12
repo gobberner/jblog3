@@ -6,6 +6,13 @@ public class CategoryVo {
 	private String explanation ;
 	private String regDate;
 	private String id;
+	private Long count;
+	public Long getCount() {
+		return count;
+	}
+	public void setCount(Long count) {
+		this.count = count;
+	}
 	public Long getNo() {
 		return no;
 	}
@@ -39,7 +46,7 @@ public class CategoryVo {
 	@Override
 	public String toString() {
 		return "CategoryVo [no=" + no + ", name=" + name + ", explanation=" + explanation + ", regDate=" + regDate
-				+ ", id=" + id + "]";
+				+ ", id=" + id + ", count=" + count + "]";
 	}
 	
 }

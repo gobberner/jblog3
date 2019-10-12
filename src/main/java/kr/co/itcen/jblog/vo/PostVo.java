@@ -5,7 +5,7 @@ public class PostVo {
 	private String title;
 	private String contents;
 	private String writtenDate;
-	private String categoryNo;
+	private Long categoryNo;
 	public Long getNo() {
 		return no;
 	}
@@ -30,10 +30,10 @@ public class PostVo {
 	public void setWrittenDate(String writtenDate) {
 		this.writtenDate = writtenDate;
 	}
-	public String getCategoryNo() {
+	public Long getCategoryNo() {
 		return categoryNo;
 	}
-	public void setCategoryNo(String categoryNo) {
+	public void setCategoryNo(Long categoryNo) {
 		this.categoryNo = categoryNo;
 	}
 	@Override

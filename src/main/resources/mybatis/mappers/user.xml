@@ -4,16 +4,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="user">
-
+	 
 	<insert id="insert" parameterType="uservo">
-
 	<![CDATA[
 		insert
-		  into user(id, name, password, join_date)
+		  into user
 		values ( #{id }, #{name }, #{password}, now())
 		]]>
 	</insert>
-	
+	 
 	<select id="getByEmailAndPassword" parameterType="uservo"
 		resultType="uservo">
 		<![CDATA[

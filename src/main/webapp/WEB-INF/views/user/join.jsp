@@ -58,22 +58,20 @@ $(function() {
 <body>
 	<div class="center-content">
 		<h1 class="logo">JBlog</h1>
-		<c:import url="/WEB-INF/views/include/header-main.jsp"/>
-		<form:form modelAttribute="userVo" class="join-form" id="join-form" method="post" action="${pageContext.servletContext.contextPath }/user/join">
+			<form:form modelAttribute="userVo" class="join-form" id="join-form" method="post" action="${pageContext.servletContext.contextPath }/user/join">
 			<label class="block-label" for="name">이름</label>
 			<form:input path="name" />
-			
+			<p style="font-wigth:bold; color:red; text-align:left; padding:2px 0 0 0">
+				<form:errors path="name"/>
+			</p>
 			<label class="block-label" for="blog-id">아이디</label>
-			<form:input path="id" />
+			<form:input path="id" id="id" />
 			<input id="btn-checkid" type="button" value="id 중복체크">
+			
 			<img id="img-checkid" style="display: none;" src="${pageContext.request.contextPath }/assets/images/check.png">
-			<spring:hasBindErrors name="userVo"><!-- Controller에서 Error가 있으면 값이 셋팅, 없으면 다음 줄 실행 -->
-				<c:if test='${errors.hasFieldErrors("id") }'> <!-- name 변수에 Error가 있는지 확인 -->
-					<p style="font-wigth:bold; color:red; text-align:left; padding:2px 0 0 0">
-						<spring:message code='${errors.getFieldError("id").codes[0] }' text='${errors.getFieldError("id").defaultMessage }' /> <!-- spring:message는 messages.properties의 값을 출력해주는 기능 -->
-					</p>
-				</c:if>
-			</spring:hasBindErrors>
+			<p style="font-wigth:bold; color:red; text-align:left; padding:2px 0 0 0">
+			 	<form:errors path="id" />
+			 </p>
 			<label class="block-label" for="password">패스워드</label>
 			<form:password path='password' />
 			<fieldset>
