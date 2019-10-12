@@ -89,25 +89,12 @@ public class BlogController {
 		return "blog/blog-admin-category";
 	}
 
-	@RequestMapping("/blog-admin-write")
-	public String blogPost() {
+	@RequestMapping("/admin/write")
+	public String blogPost(@PathVariable String id, Model model) {
+		BlogVo blogvo = blogService.get(id);
+		model.addAttribute("vo", blogvo);
 		return "blog/blog-admin-write";
 	}
 
-	@RequestMapping("/blog-main")
-	public String blogMain() {
-		return "blog/blog-main";
-	}
-
-	@RequestMapping(value = "/blog-admin-write", method = RequestMethod.POST)
-	public String blogWrite() {
-		return "blog/blog-admin-write";
-
-	}
-
-	@RequestMapping("/blog/basic")
-	public String adminBasic(@PathVariable String id) {
-		return "id:" + id;
-	}
 
 }
